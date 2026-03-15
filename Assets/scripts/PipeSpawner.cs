@@ -5,7 +5,6 @@ public class PipeSpawner : MonoBehaviour
     public GameObject pipe;
     public float spawnRate = 0.5f;
     public float heightoffset = 2f;
-
     private float timer = 0;
 
     void Start()
@@ -25,10 +24,7 @@ spawnRate=Mathf.Max(spawnRate,maxDifficultyLimit);
             spawnPipe();
             timer = 0;
         }
-        if (transform.position.y > 10 || transform.position.y < -10) {
-        if(birdIsAlive) logic.gameOver();
-        birdIsAlive = false;
-    }
+        
     }
 
     void spawnPipe()
