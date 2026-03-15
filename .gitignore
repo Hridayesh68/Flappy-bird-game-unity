@@ -12,8 +12,9 @@ Builds/
 # Memory captures
 MemoryCaptures/
 
-# VS Code
+# IDE folders
 .vscode/
+.idea/
 
 # Visual Studio
 *.csproj
@@ -34,12 +35,18 @@ Thumbs.db
 # Crash reports
 sysinfo.txt
 
-# Unity cache
+# Unity packages
 *.apk
 *.aab
 *.unitypackage
 
-# Windows build files
-*.exe
-*.dll
-*_Data/
+
+# Unity backup folders
+*_BackUpThisFolder_ButDontShipItWithYourGame/
+*_BurstDebugInformation_DoNotShip/
+
+# Android temp
+.utmp/
+
+# IDE
+.vscode/

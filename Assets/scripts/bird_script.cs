@@ -18,22 +18,23 @@ public class bird_script : MonoBehaviour
     }
 
     void Update()
-    {
-        // 1. Flap logic (Check Time.timeScale to prevent flapping while paused)
-        if (Input.GetKeyDown(KeyCode.Space) && birdisalive && Time.timeScale > 0)
-        {
-            myrigidbody.linearVelocity = Vector2.up * flapstrength;
-        }
+{
+  if ((Input.GetKeyDown(KeyCode.Space) ||
+     Input.GetMouseButtonDown(0) ||
+     (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+    && birdisalive && Time.timeScale > 0)
+{
+    myrigidbody.linearVelocity = Vector2.up * flapstrength;
+}
 
-        // 2. Check if bird is off-screen
-        if (transform.position.y > upperLimit || transform.position.y < lowerLimit)
+    if (transform.position.y > upperLimit || transform.position.y < lowerLimit)
+    {
+        if (birdisalive)
         {
-            if (birdisalive) 
-            {
-                Die();
-            }
+            Die();
         }
     }
+}
 
     void OnCollisionEnter2D(Collision2D collision)
     {
