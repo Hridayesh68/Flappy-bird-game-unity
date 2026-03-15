@@ -1,0 +1,45 @@
+# Unity generated folders
+Library/
+Temp/
+Obj/
+Logs/
+UserSettings/
+
+# Build folders
+Build/
+Builds/
+
+# Memory captures
+MemoryCaptures/
+
+# VS Code
+.vscode/
+
+# Visual Studio
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Crash reports
+sysinfo.txt
+
+# Unity cache
+*.apk
+*.aab
+*.unitypackage
+
+# Windows build files
+*.exe
+*.dll
+*_Data/
