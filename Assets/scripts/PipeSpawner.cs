@@ -3,41 +3,70 @@ using UnityEngine;
 public class PipeSpawner : MonoBehaviour
 {
     public GameObject pipe;
-    public float spawnRate = 0.5f;
-    public float heightoffset = 2f;
+
+    public float spawnRate = 2f;
     private float timer = 0;
+
+    public float heightoffset = 3f;
+    public float minHeightOffset = 1.5f;
+
+    // 🔥 Distance settings
+    public float spawnDistanceFromBird = 10f; // how far ahead of bird
+    public float minPipeDistance = 6f;        // gap between pipes
+
+    private float lastPipeX = float.MinValue;
+
+    private GameObject bird;
 
     void Start()
     {
-        spawnPipe();
+        bird = GameObject.FindGameObjectWithTag("Player");
+        SpawnPipe();
     }
 
     void Update()
     {
         timer += Time.deltaTime;
-float maxDifficultyLimit=0.8f;
-spawnRate -=0.001f*Time.deltaTime;
-spawnRate=Mathf.Max(spawnRate,maxDifficultyLimit);
+
+        AdjustDifficulty();
 
         if (timer >= spawnRate)
         {
-            spawnPipe();
+            SpawnPipe();
             timer = 0;
         }
-        
     }
 
-    void spawnPipe()
+    void AdjustDifficulty()
     {
-        float lowestpoint = transform.position.y - heightoffset;
-        float highestpoint = transform.position.y + heightoffset;
+        spawnRate -= 0.05f * Time.deltaTime;
+        spawnRate = Mathf.Clamp(spawnRate, 1f, 3f);
 
-        Vector3 spawnPosition = new Vector3(
-            transform.position.x,
-            Random.Range(lowestpoint, highestpoint),
-            transform.position.z
-        );
+        heightoffset -= 0.2f * Time.deltaTime;
+        heightoffset = Mathf.Max(heightoffset, minHeightOffset);
+    }
 
-        Instantiate(pipe, spawnPosition, transform.rotation);
+    void SpawnPipe()
+    {
+        float camHeight = Camera.main.orthographicSize;
+
+        float birdX = bird.transform.position.x;
+
+        // 🔥 Base spawn always in front of bird
+        float baseSpawnX = birdX + spawnDistanceFromBird;
+
+        // 🔥 Ensure spacing from last pipe
+        float spawnX = Mathf.Max(baseSpawnX, lastPipeX + minPipeDistance);
+
+        float minY = -camHeight + heightoffset;
+        float maxY = camHeight - heightoffset;
+
+        float randomY = Random.Range(minY, maxY);
+
+        Vector3 spawnPosition = new Vector3(spawnX, randomY, 0);
+
+        Instantiate(pipe, spawnPosition, Quaternion.identity);
+
+        lastPipeX = spawnX;
     }
 }

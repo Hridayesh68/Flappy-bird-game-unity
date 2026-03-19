@@ -1,22 +1,32 @@
+# =========================
 # Unity generated folders
+# =========================
 Library/
 Temp/
 Obj/
 Logs/
 UserSettings/
 
+# =========================
 # Build folders
+# =========================
 Build/
 Builds/
 
+# =========================
 # Memory captures
+# =========================
 MemoryCaptures/
 
+# =========================
 # IDE folders
+# =========================
 .vscode/
 .idea/
 
-# Visual Studio
+# =========================
+# Visual Studio files
+# =========================
 *.csproj
 *.unityproj
 *.sln
@@ -28,25 +38,50 @@ MemoryCaptures/
 *.booproj
 *.svd
 
+# =========================
 # OS generated
+# =========================
 .DS_Store
 Thumbs.db
 
+# =========================
 # Crash reports
+# =========================
 sysinfo.txt
 
+# =========================
 # Unity packages
-*.apk
-*.aab
+# =========================
 *.unitypackage
 
-
+# =========================
 # Unity backup folders
+# =========================
 *_BackUpThisFolder_ButDontShipItWithYourGame/
 *_BurstDebugInformation_DoNotShip/
 
+# =========================
 # Android temp
+# =========================
 .utmp/
 
-# IDE
-.vscode/
+# =========================
+# Plastic SCM (ignore completely)
+# =========================
+.plastic/
+
+# =========================
+# AI / tooling
+# =========================
+.continue/
+
+# =========================
+# Android build folder
+# Ignore everything BUT APK
+# =========================
+android build/*
+!android build/
+!android build/*.apk
+# Large sound packs (remove)
+Assets/1.1 - FREE CASUAL PACK SFX/
+Assets/Casual Game Sounds U6/

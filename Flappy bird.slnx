@@ -60,8 +60,8 @@
   <Project Path="Unity.Services.Core.Analytics.csproj" />
   <Project Path="Unity.CollabProxy.Editor.csproj" />
   <Project Path="Unity.Services.Core.Registration.csproj" />
-  <Project Path="Unity.InputSystem.DocCodeSamples.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Unity.InputSystem.DocCodeSamples.csproj" />
   <Project Path="Unity.Services.Core.Networking.csproj" />
   <Project Path="Unity.VisualScripting.DocCodeExamples.csproj" />
   <Project Path="Unity.PlasticSCM.Editor.Entities.csproj" />
